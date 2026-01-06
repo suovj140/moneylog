@@ -37,12 +37,33 @@
   gap: 1rem;
   flex-wrap: nowrap;
   margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+  .transactions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
 }
 
 .transactions-header .page-title {
   font-size: 1.75rem;
   font-weight: 700;
   flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 769px) {
+  .transactions-header .page-title {
+    flex-shrink: 0;
+    margin-right: auto;
+  }
 }
 
 .transactions-header .delete-button {
@@ -54,6 +75,14 @@
   display: flex;
   align-items: center;
   gap: 0;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+@media (min-width: 769px) {
+  .transactions-header .month-navigation {
+    margin-left: auto;
+  }
 }
 
 .transactions-header .month-navigation button:not(.today-button) {
@@ -234,12 +263,14 @@
 .transactions-table-wrapper {
   width: 100%;
   overflow-x: auto;
+  box-sizing: border-box;
 }
 
 .transactions-table {
   width: 100%;
   border-collapse: collapse;
   background-color: transparent;
+  table-layout: auto;
 }
 
 .transactions-table thead {
@@ -252,6 +283,10 @@
   font-size: 0.875rem;
   font-weight: 600;
   white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  z-index: 1;
 }
 
 .transactions-table tbody tr {
