@@ -54,6 +54,13 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const theme = getTheme(isDark)
 
+  // body와 html의 배경색을 테마에 맞게 설정
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.background
+    document.body.style.color = theme.text
+    document.documentElement.style.backgroundColor = theme.background
+  }, [theme])
+
   return (
     <ThemeContext.Provider value={{ theme, isDark, toggleTheme, setThemeMode, themeMode }}>
       {children}

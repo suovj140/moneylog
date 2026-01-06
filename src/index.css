@@ -7,6 +7,8 @@
 html {
   overflow-x: hidden;
   max-width: 100vw;
+  background-color: #1A1A1A; /* 기본 다크 테마 배경색 */
+  transition: background-color 0.3s ease;
 }
 
 body {
@@ -20,12 +22,20 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1A1A1A; /* 기본 다크 테마 배경색 */
+  color: #FFFFFF; /* 기본 텍스트 색상 */
 }
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: inherit;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 button {

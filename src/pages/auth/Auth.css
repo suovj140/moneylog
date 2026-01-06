@@ -8,6 +8,8 @@
   padding: 3rem;
   position: relative;
   overflow: hidden;
+  background-color: inherit;
+  margin: 0;
 }
 
 @media (min-width: 769px) {
