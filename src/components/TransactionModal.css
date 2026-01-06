@@ -1,21 +1,29 @@
 .transaction-modal-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 10000 !important;
-  padding: 1rem !important;
-  animation: fadeIn 0.2s ease-out !important;
-  margin: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .transaction-modal-overlay {
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
 }
 
 @keyframes fadeIn {
@@ -28,18 +36,28 @@
 }
 
 .transaction-modal {
-  width: 100% !important;
-  max-width: 500px !important;
-  min-width: 320px !important;
-  max-height: 90vh !important;
-  border-radius: 16px !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  animation: slideUp 0.3s ease-out !important;
-  overflow: hidden !important;
-  position: relative !important;
-  margin: 0 auto !important;
+  width: 100%;
+  max-width: 500px;
+  min-width: 320px;
+  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  .transaction-modal {
+    width: 100%;
+    max-width: 500px;
+    min-width: 320px;
+    border-radius: 16px;
+    margin: 0 auto;
+  }
 }
 
 @keyframes slideUp {
@@ -246,59 +264,59 @@
 /* 모바일 대응 */
 @media screen and (max-width: 768px) {
   .transaction-modal-overlay {
-    padding: 0 !important;
-    align-items: flex-end !important;
-    justify-content: flex-end !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 10000 !important;
+    padding: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
   }
 
   .transaction-modal {
-    max-width: 100% !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    max-height: 95vh !important;
-    border-radius: 16px 16px 0 0 !important;
-    margin: 0 !important;
-    position: relative !important;
-    align-self: flex-end !important;
+    max-width: 100%;
+    width: 100%;
+    min-width: 100%;
+    max-height: 95vh;
+    border-radius: 16px 16px 0 0;
+    margin: 0;
+    position: relative;
+    align-self: flex-end;
   }
 
   .transaction-modal-header {
-    padding: 1.25rem !important;
+    padding: 1.25rem;
   }
 
   .transaction-modal-header h2 {
-    font-size: 1.25rem !important;
+    font-size: 1.25rem;
   }
 
   .transaction-modal-form {
-    padding: 1.25rem !important;
+    padding: 1.25rem;
   }
 
   .type-selector {
-    flex-direction: row !important;
-    gap: 0.5rem !important;
+    flex-direction: row;
+    gap: 0.5rem;
   }
 
   .type-button {
-    font-size: 0.875rem !important;
-    padding: 0.625rem !important;
+    font-size: 0.875rem;
+    padding: 0.625rem;
   }
 
   .form-group {
-    margin-bottom: 1rem !important;
+    margin-bottom: 1rem;
   }
 
   .form-input {
-    font-size: 0.9375rem !important;
-    padding: 0.625rem !important;
+    font-size: 0.9375rem;
+    padding: 0.625rem;
   }
 }
 

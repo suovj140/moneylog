@@ -20,6 +20,11 @@
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+  aspect-ratio: 1 / 1;
+  min-width: 56px;
+  min-height: 56px;
+  max-width: 56px;
+  max-height: 56px;
 }
 
 .fab:hover {
