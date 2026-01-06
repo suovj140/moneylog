@@ -14,9 +14,8 @@
   .reports {
     flex: 1;
     min-height: 0;
-    height: 100%;
-    max-height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
   }
@@ -199,7 +198,6 @@
   .charts-grid {
     flex: 1;
     min-height: 400px;
-    overflow: hidden;
     grid-template-rows: repeat(2, 1fr);
     align-items: stretch;
   }
