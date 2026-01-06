@@ -1,0 +1,220 @@
+.date-picker-container {
+  position: relative;
+  width: 100%;
+}
+
+.date-picker-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.date-picker-button:hover {
+  border-color: var(--primary);
+}
+
+.date-picker-button:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.date-picker-button svg {
+  flex-shrink: 0;
+}
+
+.date-picker-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 1000;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid;
+  min-width: 320px;
+  width: 100%;
+  max-width: 400px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.date-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.date-picker-nav-button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.date-picker-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.date-picker-month-year {
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+}
+
+.date-picker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.date-picker-weekday {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.date-picker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.date-picker-day {
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-picker-day:hover:not(.selected) {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+.date-picker-day.selected {
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+.date-picker-day.today:not(.selected) {
+  font-weight: 700;
+}
+
+.date-picker-day.empty {
+  cursor: default;
+}
+
+.date-picker-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid;
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+.date-picker-today-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: none;
+}
+
+.date-picker-today-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .date-picker-nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .date-picker-day:hover:not(.selected) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 768px) {
+  .date-picker-dropdown {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: calc(100vw - 2rem) !important;
+    width: auto !important;
+    min-width: 300px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    z-index: 10001 !important;
+  }
+
+  .date-picker-days {
+    gap: 0.25rem !important;
+  }
+
+  .date-picker-day {
+    font-size: 0.875rem !important;
+    min-height: 36px !important;
+  }
+
+  .date-picker-weekday {
+    font-size: 0.7rem !important;
+    padding: 0.25rem 0 !important;
+  }
+
+  .date-picker-header {
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .date-picker-month-year {
+    font-size: 0.9375rem !important;
+  }
+}
+

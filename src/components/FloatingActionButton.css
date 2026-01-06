@@ -1,0 +1,58 @@
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+.fab svg {
+  transition: transform 0.3s;
+}
+
+.fab:hover svg {
+  transform: rotate(90deg);
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 768px) {
+  .fab {
+    width: 56px !important;
+    height: 56px !important;
+    bottom: 1.5rem !important;
+    right: 1rem !important;
+  }
+}
+
+/* 사이드바가 있을 때 위치 조정 */
+@media (min-width: 769px) {
+  .fab {
+    right: 3rem; /* PC 버전에서 더 오른쪽으로 이동 */
+  }
+}
+
+/* 태블릿 대응 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fab {
+    right: 2.5rem;
+  }
+}
+

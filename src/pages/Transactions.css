@@ -1,0 +1,436 @@
+.transactions-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding-bottom: 5rem; /* 플로팅 버튼 공간 확보 */
+}
+
+@media (min-width: 769px) {
+  .transactions-page {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+    max-height: 100vh;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .transactions-page {
+    flex: 1 !important;
+    min-height: 0 !important;
+    padding-bottom: 0 !important; /* 홈 화면처럼 화면 가득 채우기 */
+  }
+}
+
+.transactions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+
+.transactions-header .page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.transactions-header .delete-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.transactions-header .month-navigation {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.transactions-header .month-navigation button:not(.today-button) {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: 1.125rem;
+  vertical-align: middle;
+  width: 1.5rem;
+}
+
+.transactions-header .month-navigation button:first-of-type:not(.today-button) {
+  margin-right: 0.5rem;
+}
+
+.transactions-header .month-navigation button:last-of-type:not(.today-button) {
+  margin-left: 0.5rem;
+}
+
+.transactions-header .month-navigation button:not(.today-button):hover {
+  opacity: 0.7;
+}
+
+.transactions-header .month-navigation span {
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.monthly-summary,
+.daily-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.date-picker-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.summary-label {
+  font-size: 0.875rem;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .summary-value {
+    font-size: 1rem !important;
+  }
+}
+
+.transaction-list-container {
+  width: 100%;
+  padding: 0;
+  overflow-y: auto;
+}
+
+@media (min-width: 769px) {
+  .transactions-header,
+  .daily-summary {
+    flex-shrink: 0;
+  }
+  
+  .transaction-list-container {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+.date-group {
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.date-header {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.date-header > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transactions-table-header {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.transactions-table-header > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-list {
+  width: 100%;
+}
+
+.transaction-item {
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.transaction-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+@media (prefers-color-scheme: dark) {
+  .transaction-item:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  
+  .date-group {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.loading-message,
+.empty-message {
+  font-size: 1rem;
+}
+
+/* PC 버전 테이블 스타일 */
+.transactions-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+.transactions-table thead {
+  background-color: transparent;
+}
+
+.transactions-table th {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.transactions-table tbody tr {
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.transactions-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.transactions-table td {
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+}
+
+@media (prefers-color-scheme: dark) {
+  .transactions-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+}
+
+/* 체크박스 커스텀 스타일 */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #D84315;
+  border-color: #D84315;
+}
+
+input[type="checkbox"] {
+  border-color: #404040;
+  background-color: transparent;
+}
+
+@media (prefers-color-scheme: light) {
+  input[type="checkbox"] {
+    border-color: #CED4DA;
+  }
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+input[type="checkbox"]:hover {
+  border-color: #D84315;
+  opacity: 0.8;
+}
+
+.transactions-table input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.transactions-table input[type="checkbox"]:checked::after {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .transactions-table-wrapper {
+    display: none;
+  }
+
+  .transactions-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-bottom: 1rem !important;
+  }
+
+  .transactions-header > div:first-child {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .transactions-header .page-title {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .transactions-header .delete-button {
+    flex-shrink: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+    margin-left: 0.5rem;
+  }
+
+  .date-picker-wrapper {
+    margin-left: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .date-header {
+    padding: 0.75rem 1rem 0.5rem 1rem !important;
+  }
+
+  .date-header > div {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .transaction-item {
+    padding: 0.875rem !important;
+  }
+
+  .transaction-item > div {
+    gap: 0.5rem !important;
+  }
+
+  .transaction-item > div > div:last-child {
+    gap: 0.5rem !important;
+  }
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  input[type="checkbox"]:checked::after {
+    font-size: 12px;
+  }
+
+  .month-navigation {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .month-navigation button:not(.today-button) {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.125rem;
+    vertical-align: middle;
+    width: 1.25rem;
+  }
+
+  .month-navigation button:not(.today-button):nth-of-type(1) {
+    margin-right: 0.375rem;
+  }
+
+  .month-navigation button:not(.today-button):nth-of-type(2) {
+    margin-left: 0.375rem;
+    margin-right: 0;
+  }
+
+  .month-navigation button:not(.today-button):hover {
+    opacity: 0.7;
+  }
+
+  .month-navigation .today-button {
+    font-size: 0.6875rem !important;
+    margin-left: 0.75rem;
+    padding: 0.375rem 0.75rem !important;
+  }
+
+  .month-navigation span {
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    flex-shrink: 0;
+  }
+}

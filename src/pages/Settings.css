@@ -1,0 +1,258 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .settings-page {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .settings-page {
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .settings {
+    flex: 1 !important;
+    min-height: 0 !important;
+  }
+}
+
+.settings-section {
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-info {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.setting-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.setting-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.success-message {
+  background: #D1FAE5;
+  color: #065F46;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.info-value {
+  color: var(--text-secondary);
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.feature-item:hover {
+  background-color: var(--surface-light, rgba(0, 0, 0, 0.05));
+}
+
+.feature-detail {
+  animation: expand 0.2s ease-out;
+  overflow: hidden;
+}
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.feature-icon {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .settings {
+    padding-top: 0 !important;
+    gap: 1rem !important;
+  }
+
+  .settings-section {
+    padding: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .section-title {
+    margin-bottom: 1rem !important;
+    font-size: 1.125rem !important;
+  }
+
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+  }
+
+  .setting-item .btn {
+    width: 100%;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .profile-item .btn {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .setting-info {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .setting-name {
+    font-size: 0.9375rem !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .setting-desc {
+    font-size: 0.8125rem !important;
+  }
+
+  .page-header {
+    display: none !important;
+  }
+
+  .profile-item {
+    gap: 1rem !important;
+  }
+
+  .profile-image-container {
+    width: 100% !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+  }
+
+  .profile-image-container > div:last-child {
+    flex: 1;
+    display: flex;
+    flex-direction: row !important;
+    gap: 0.5rem;
+  }
+
+  .profile-image-container > div:last-child > label,
+  .profile-image-container > div:last-child > button {
+    flex: 1 1 50% !important;
+    min-width: 0;
+    max-width: 50%;
+  }
+
+  .setting-item > div:last-child {
+    width: 100%;
+  }
+
+  .setting-item > div:last-child > button {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* 언어 선택 버튼 특별 스타일 */
+  .language-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+
+  .language-buttons .language-btn {
+    flex: 0 0 calc(33.333% - 0.34rem) !important;
+    min-width: 0 !important;
+    max-width: calc(33.333% - 0.34rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+  }
+
+  .feature-item {
+    padding: 0.5rem !important;
+  }
+
+  .feature-detail {
+    font-size: 0.8125rem !important;
+    padding: 0.5rem !important;
+  }
+}
+

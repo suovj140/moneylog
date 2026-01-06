@@ -1,0 +1,491 @@
+.statistics-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .statistics-page {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+    max-height: 100vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .statistics-page {
+    flex: 1 !important;
+    min-height: 0 !important;
+  }
+}
+
+.statistics-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+@media (min-width: 769px) {
+  .statistics-header {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.statistics-header > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.type-tabs-header {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.statistics-header .month-navigation {
+  flex-shrink: 0;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.month-navigation {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.month-navigation button:not(.today-button) {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.125rem;
+  vertical-align: middle;
+  width: 1.5rem;
+}
+
+.month-navigation button:not(.today-button):nth-of-type(1) {
+  margin-right: 0.5rem;
+}
+
+.month-navigation button:not(.today-button):nth-of-type(2) {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+.month-navigation button:not(.today-button):hover {
+  opacity: 0.7;
+}
+
+.month-navigation .today-button {
+  font-size: 0.75rem !important;
+  margin-left: 1rem;
+}
+
+.month-navigation span {
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.today-button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.today-button:hover {
+  opacity: 0.8;
+}
+
+.type-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.type-tab {
+  padding: 0.625rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.type-tab:hover {
+  opacity: 0.9;
+}
+
+.statistics-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 769px) {
+  .statistics-header {
+    flex-shrink: 0;
+  }
+  
+  .type-tabs {
+    display: none; /* PC에서는 숨김 */
+  }
+  
+  .statistics-content {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    grid-auto-rows: 1fr;
+    align-items: stretch;
+  }
+}
+
+.statistics-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.statistics-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+@media (min-width: 769px) {
+  .statistics-left,
+  .statistics-right {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+    align-items: stretch;
+  }
+}
+
+.card {
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card {
+  height: 450px;
+  max-height: 450px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .chart-card {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+}
+
+.chart-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.chart-empty {
+  font-size: 0.875rem;
+}
+
+.category-list {
+  height: 450px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (min-width: 769px) {
+  .category-list {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+}
+
+.category-list .category-items {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.list-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.category-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.category-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.category-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.category-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.category-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-percent {
+  font-size: 0.875rem;
+}
+
+.category-value {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  min-width: 80px;
+  text-align: right;
+}
+
+.daily-chart {
+  height: 450px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (min-width: 769px) {
+  .daily-chart {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+}
+
+.daily-chart > div {
+  flex: 1;
+  min-height: 0;
+}
+
+.transactions-list {
+  height: 450px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (min-width: 769px) {
+  .transactions-list {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+}
+
+.transactions-list .transactions-items {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.transactions-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.date-group {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  padding-bottom: 1rem;
+}
+
+.date-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.date-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.date-text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.date-total {
+  font-size: 0.9375rem;
+}
+
+.transaction-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.transaction-category {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.transaction-description {
+  font-size: 0.8125rem;
+}
+
+.transaction-amount {
+  font-size: 0.875rem;
+  font-weight: 600;
+  min-width: 80px;
+  text-align: right;
+}
+
+.empty-message {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1024px) {
+  .statistics-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .statistics-header > div {
+    width: 100%;
+  }
+
+  .type-tabs {
+    width: 100%;
+  }
+
+  .type-tab {
+    flex: 1;
+  }
+
+  .statistics-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .statistics-left,
+  .statistics-right {
+    gap: 1rem;
+  }
+
+  .chart-card {
+    height: 350px;
+    max-height: 350px;
+  }
+
+  .category-list {
+    height: auto;
+    max-height: none;
+    min-height: 200px;
+  }
+
+  .category-list .category-items {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .daily-chart {
+    height: 300px;
+    max-height: 300px;
+  }
+
+  .transactions-list {
+    height: 400px;
+    max-height: 400px;
+  }
+}
