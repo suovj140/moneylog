@@ -301,19 +301,8 @@ export default function Statistics() {
               <div style={{ flex: 1, minHeight: 0, height: '100%' }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart 
-                  onClick={(e) => {
-                    if (e && typeof e.preventDefault === 'function') {
-                      e.preventDefault()
-                    }
-                    if (e && typeof e.stopPropagation === 'function') {
-                      e.stopPropagation()
-                    }
+                  onClick={() => {
                     setActiveIndex(undefined)
-                  }}
-                  onMouseDown={(e) => {
-                    if (e && typeof e.preventDefault === 'function') {
-                      e.preventDefault()
-                    }
                   }}
                   style={{ cursor: 'default', userSelect: 'none' }}
                 >
@@ -342,20 +331,14 @@ export default function Statistics() {
                         />
                       )
                     }}
-                    onMouseEnter={(_, index) => setActiveIndex(index)}
+                    onMouseEnter={(_data, index) => setActiveIndex(index)}
                     onMouseLeave={() => setActiveIndex(undefined)}
-                    onClick={(data, index, e) => {
-                      if (e && typeof e.preventDefault === 'function') {
-                        e.preventDefault()
-                      }
-                      if (e && typeof e.stopPropagation === 'function') {
-                        e.stopPropagation()
-                      }
+                    onClick={() => {
                       setActiveIndex(undefined)
                     }}
                     isAnimationActive={false}
                   >
-                    {pieData.map((entry, index) => (
+                    {pieData.map((_entry, index) => (
                       <Cell 
                         key={`cell-${index}`} 
                         fill={colors[index % colors.length]}
@@ -402,7 +385,7 @@ export default function Statistics() {
                     align="right"
                     iconType="circle"
                     wrapperStyle={{ paddingLeft: '1rem', fontSize: '0.875rem' }}
-                    formatter={(value: string, entry: any) => (
+                    formatter={(value: string, _entry: any) => (
                       <span style={{ color: theme.text }}>{translateCategory(value)}</span>
                     )}
                   />

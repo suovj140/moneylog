@@ -668,7 +668,7 @@ export default function TransactionModal({ isOpen, onClose, onSuccess, transacti
             {/* 사진 미리보기 */}
             {photos.length > 0 && (
               <div className="photo-preview-grid" style={{ marginBottom: '1rem' }}>
-                {photos.map((photo, index) => (
+                {photos.map((photo, _index) => (
                   <div
                     key={photo.id}
                     className="photo-preview-item"

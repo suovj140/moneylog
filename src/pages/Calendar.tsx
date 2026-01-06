@@ -13,7 +13,7 @@ export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date()) // 초기값을 오늘 날짜로 설정
   const [transactions, setTransactions] = useState<Transaction[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [_isLoading, setIsLoading] = useState(true)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false)
   const [dragY, setDragY] = useState(0)
@@ -139,14 +139,6 @@ export default function Calendar() {
 
   const weekDays = t('common.weekDays', { returnObjects: true }) as string[]
 
-  // 거래 유형 텍스트 변환
-  const getTypeText = (type: string) => {
-    switch (type) {
-      case 'income': return t('common.income')
-      case 'expense': return t('common.expense')
-      default: return type
-    }
-  }
 
   // 카테고리명 번역 함수 (저장된 값 -> 현재 언어로 변환)
   const translateCategory = (category: string): string => {

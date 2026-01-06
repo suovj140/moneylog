@@ -12,7 +12,7 @@ interface DatePickerProps {
 }
 
 export default function DatePicker({ value, onChange, onClose }: DatePickerProps) {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { theme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [currentMonth, setCurrentMonth] = useState(() => {

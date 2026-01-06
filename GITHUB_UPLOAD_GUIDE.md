@@ -44,7 +44,48 @@ git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 git remote add origin https://github.com/username/moneylog.git
 ```
 
-## 6. 파일 업로드
+## 6. GitHub 인증 설정
+
+GitHub에 푸시하려면 인증이 필요합니다. 다음 중 하나의 방법을 선택하세요:
+
+### 방법 1: Personal Access Token 사용 (권장)
+
+1. GitHub 웹사이트에서 Settings → Developer settings → Personal access tokens → Tokens (classic)
+2. "Generate new token" 클릭
+3. Note에 "moneylog" 입력, Expiration 설정, `repo` 권한 체크
+4. "Generate token" 클릭 후 토큰 복사
+5. 푸시 시 비밀번호 대신 토큰 입력:
+
+```bash
+git push -u origin main
+# Username: suovj140
+# Password: [복사한 Personal Access Token 입력]
+```
+
+### 방법 2: SSH 키 사용
+
+1. SSH 키 생성 (이미 있다면 스킵):
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+2. 공개 키를 GitHub에 추가:
+   - `~/.ssh/id_ed25519.pub` 파일 내용 복사
+   - GitHub → Settings → SSH and GPG keys → New SSH key
+
+3. 원격 저장소 URL을 SSH로 변경:
+```bash
+git remote set-url origin git@github.com:suovj140/moneylog.git
+```
+
+4. 푸시:
+```bash
+git push -u origin main
+```
+
+## 7. 파일 업로드
+
+인증 설정 후:
 
 ```bash
 git push -u origin main

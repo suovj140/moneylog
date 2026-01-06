@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import { useTranslation } from 'react-i18next'
-import { format, parseISO, getDay, startOfDay, endOfDay, startOfMonth, endOfMonth, subMonths, addMonths, eachDayOfInterval } from 'date-fns'
+import { format, parseISO, getDay, startOfDay, endOfDay, startOfMonth, endOfMonth, subMonths, addMonths } from 'date-fns'
 import { transactionService, Transaction } from '../services/transactionService'
 import FloatingActionButton from '../components/FloatingActionButton'
 import TransactionModal from '../components/TransactionModal'
@@ -166,13 +166,6 @@ export default function Transactions() {
   )
   daySummary.balance = daySummary.income - daySummary.expense
 
-  // 선택한 날짜의 내역들을 시간순으로 정렬 (최신순)
-  const sortedTransactions = [...dayTransactions].sort((a, b) => {
-    // ID를 기준으로 정렬 (최신순, 큰 ID가 최신)
-    const idA = parseInt(a.id) || 0
-    const idB = parseInt(b.id) || 0
-    return idB - idA
-  })
 
   // 거래 유형 텍스트 변환
   const getTypeText = (type: string) => {
@@ -347,13 +340,6 @@ export default function Transactions() {
     })
   }
 
-  const handleSelectAll = (checked: boolean) => {
-    if (checked) {
-      setSelectedIds(new Set(monthTransactions.map(t => t.id)))
-    } else {
-      setSelectedIds(new Set())
-    }
-  }
 
   const handleDeleteSelected = async () => {
     if (selectedIds.size === 0) {

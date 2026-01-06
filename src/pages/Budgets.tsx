@@ -60,7 +60,7 @@ export default function Budgets() {
   const loadTransactions = async () => {
     try {
       const data = await transactionService.getAll()
-      setTransactions(data.filter(t => t.type === 'expense'))
+      setTransactions(data.filter(t => t.type === 'expense') as Transaction[])
     } catch (error) {
       console.error('Failed to load transactions:', error)
       // 폴백: 로컬 스토리지에서 가져오기
@@ -167,10 +167,6 @@ export default function Budgets() {
     }
   }
 
-  const checkBudgetAlert = (budget: Budget) => {
-    const spent = getMonthExpenses(budget.categoryName === allCategoryText ? null : budget.categoryName)
-    return spent > budget.amount
-  }
 
   return (
     <div className="budgets">

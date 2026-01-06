@@ -293,19 +293,8 @@ export default function Reports() {
             <div style={{ flex: 1, minHeight: 0, height: '100%' }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart 
-                  onClick={(e) => {
-                    if (e && typeof e.preventDefault === 'function') {
-                      e.preventDefault()
-                    }
-                    if (e && typeof e.stopPropagation === 'function') {
-                      e.stopPropagation()
-                    }
+                  onClick={() => {
                     setActiveExpenseIndex(undefined)
-                  }}
-                  onMouseDown={(e) => {
-                    if (e && typeof e.preventDefault === 'function') {
-                      e.preventDefault()
-                    }
                   }}
                   style={{ cursor: 'default', userSelect: 'none' }}
                 >
@@ -334,20 +323,14 @@ export default function Reports() {
                       />
                     )
                   }}
-                  onMouseEnter={(_, index) => setActiveExpenseIndex(index)}
+                  onMouseEnter={(_data, index) => setActiveExpenseIndex(index)}
                   onMouseLeave={() => setActiveExpenseIndex(undefined)}
-                  onClick={(data, index, e) => {
-                    if (e && typeof e.preventDefault === 'function') {
-                      e.preventDefault()
-                    }
-                    if (e && typeof e.stopPropagation === 'function') {
-                      e.stopPropagation()
-                    }
+                  onClick={() => {
                     setActiveExpenseIndex(undefined)
                   }}
                   isAnimationActive={false}
                 >
-                  {expensePieData.map((entry, index) => (
+                  {expensePieData.map((_entry, index) => (
                     <Cell 
                       key={`expense-cell-${index}`} 
                       fill={EXPENSE_COLORS[index % EXPENSE_COLORS.length]}
@@ -395,7 +378,7 @@ export default function Reports() {
                   align="right"
                   iconType="circle"
                   wrapperStyle={{ paddingLeft: '1rem', fontSize: '0.875rem' }}
-                  formatter={(value: string, entry: any) => (
+                  formatter={(value: string, _entry: any) => (
                     <span style={{ color: theme.text }}>{translateCategory(value)}</span>
                   )}
                 />
@@ -473,19 +456,8 @@ export default function Reports() {
             <div style={{ flex: 1, minHeight: 0, height: '100%' }}>
               <ResponsiveContainer width="100%" height="100%">
               <PieChart 
-                onClick={(e) => {
-                  if (e && typeof e.preventDefault === 'function') {
-                    e.preventDefault()
-                  }
-                  if (e && typeof e.stopPropagation === 'function') {
-                    e.stopPropagation()
-                  }
+                onClick={() => {
                   setActiveIncomeIndex(undefined)
-                }}
-                onMouseDown={(e) => {
-                  if (e && typeof e.preventDefault === 'function') {
-                    e.preventDefault()
-                  }
                 }}
                 style={{ cursor: 'default', userSelect: 'none' }}
               >
@@ -514,20 +486,14 @@ export default function Reports() {
                       />
                     )
                   }}
-                  onMouseEnter={(_, index) => setActiveIncomeIndex(index)}
+                  onMouseEnter={(_data, index) => setActiveIncomeIndex(index)}
                   onMouseLeave={() => setActiveIncomeIndex(undefined)}
-                  onClick={(data, index, e) => {
-                    if (e && typeof e.preventDefault === 'function') {
-                      e.preventDefault()
-                    }
-                    if (e && typeof e.stopPropagation === 'function') {
-                      e.stopPropagation()
-                    }
+                  onClick={() => {
                     setActiveIncomeIndex(undefined)
                   }}
                   isAnimationActive={false}
                 >
-                  {incomePieData.map((entry, index) => (
+                  {incomePieData.map((_entry, index) => (
                     <Cell 
                       key={`income-cell-${index}`} 
                       fill={INCOME_COLORS[index % INCOME_COLORS.length]}
@@ -575,7 +541,7 @@ export default function Reports() {
                   align="right"
                   iconType="circle"
                   wrapperStyle={{ paddingLeft: '1rem', fontSize: '0.875rem' }}
-                  formatter={(value: string, entry: any) => (
+                  formatter={(value: string, _entry: any) => (
                     <span style={{ color: theme.text }}>{translateCategory(value)}</span>
                   )}
                 />

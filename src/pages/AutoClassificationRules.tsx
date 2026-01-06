@@ -13,7 +13,7 @@ export default function AutoClassificationRules() {
   const [isLoading, setIsLoading] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingRule, setEditingRule] = useState<AutoClassificationRule | null>(null)
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+  const [_isMobile, setIsMobile] = useState(window.innerWidth <= 768)
 
   useEffect(() => {
     const handleResize = () => {
@@ -236,7 +236,7 @@ function AutoClassificationRuleModal({
     conditions: {} as any,
     actions: {
       category: '',
-      paymentMethod: ''
+      paymentMethod: '' as string | undefined
     }
   })
   const [isLoading, setIsLoading] = useState(false)
@@ -250,7 +250,10 @@ function AutoClassificationRuleModal({
         priority: rule.priority,
         enabled: rule.enabled,
         conditions: rule.conditions,
-        actions: rule.actions
+        actions: {
+          category: rule.actions.category,
+          paymentMethod: rule.actions.paymentMethod || ''
+        }
       })
     }
   }, [rule])

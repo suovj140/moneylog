@@ -20,7 +20,7 @@ export default function Settings() {
   const { theme, setThemeMode, themeMode } = useTheme()
   const [exportSuccess, setExportSuccess] = useState(false)
   const [profileImage, setProfileImage] = useState<string | null>(null)
-  const [userName, setUserName] = useState<string>('')
+  const [_userName, setUserName] = useState<string>('')
   const [isUploading, setIsUploading] = useState(false)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
   const [expandedFeature, setExpandedFeature] = useState<string | null>(null)

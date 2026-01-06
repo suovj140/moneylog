@@ -42,7 +42,7 @@ export const authService = {
       }
 
       // 이메일 중복 체크
-      const { data: existingUser, error: checkError } = await supabase
+      const { data: existingUser, error: _checkError } = await supabase
         .from('users')
         .select('id')
         .eq('email', data.email.toLowerCase().trim())
@@ -230,7 +230,7 @@ export const authService = {
       const fileName = `${userId}_${Date.now()}.${fileExt}`
       const filePath = `${fileName}`
 
-      const { data: uploadData, error: uploadError } = await supabase.storage
+      const { data: _uploadData, error: uploadError } = await supabase.storage
         .from('profile-images')
         .upload(filePath, file, {
           cacheControl: '3600',

@@ -22,7 +22,7 @@ const toLocalFormat = (dbTransaction: any): Transaction => {
   let memo = ''
   
   if (description) {
-    const parts = description.split('|').map(p => p.trim())
+    const parts = description.split('|').map((p: string) => p.trim())
     for (const part of parts) {
       if (part.startsWith('결제수단:')) {
         paymentMethod = part.replace('결제수단:', '').trim()

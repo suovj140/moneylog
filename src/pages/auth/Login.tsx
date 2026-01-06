@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '../../contexts/ThemeContext'
 import { authService } from '../../services/authService'
 import './Auth.css'
 
 export default function Login() {
-  const navigate = useNavigate()
   const { t } = useTranslation()
   const { theme } = useTheme()
   const [formData, setFormData] = useState({
