@@ -1,14 +1,14 @@
 .transactions-page {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1.5rem !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  padding-bottom: 5rem !important; /* 플로팅 버튼 공간 확보 */
-  box-sizing: border-box !important;
-  flex: 1 !important;
-  min-height: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding-bottom: 5rem; /* 플로팅 버튼 공간 확보 */
+  box-sizing: border-box;
+  flex: 1;
+  min-height: 0;
 }
 
 @media (min-width: 769px) {
@@ -18,14 +18,15 @@
     height: 100%;
     max-height: 100vh;
     padding-bottom: 0;
+    overflow: hidden;
   }
 }
 
 @media screen and (max-width: 768px) {
   .transactions-page {
-    flex: 1 !important;
-    min-height: 0 !important;
-    padding-bottom: 0 !important; /* 홈 화면처럼 화면 가득 채우기 */
+    flex: 1;
+    min-height: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -132,7 +133,7 @@
 
 @media (max-width: 768px) {
   .summary-value {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 }
 
@@ -140,9 +141,21 @@
   width: 100%;
   padding: 0;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  min-height: 0;
 }
 
 @media (min-width: 769px) {
+  .transactions-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
   .transactions-header,
   .daily-summary {
     flex-shrink: 0;
@@ -152,6 +165,8 @@
     flex: 1;
     min-height: 0;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -325,7 +340,7 @@ input[type="checkbox"]:hover {
     flex-direction: column;
     align-items: stretch;
     gap: 0.75rem;
-    margin-bottom: 1rem !important;
+    margin-bottom: 1rem;
   }
 
   .transactions-header > div:first-child {
@@ -354,23 +369,23 @@ input[type="checkbox"]:hover {
   }
 
   .date-header {
-    padding: 0.75rem 1rem 0.5rem 1rem !important;
+    padding: 0.75rem 1rem 0.5rem 1rem;
   }
 
   .date-header > div {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.5rem;
   }
 
   .transaction-item {
-    padding: 0.875rem !important;
+    padding: 0.875rem;
   }
 
   .transaction-item > div {
-    gap: 0.5rem !important;
+    gap: 0.5rem;
   }
 
   .transaction-item > div > div:last-child {
-    gap: 0.5rem !important;
+    gap: 0.5rem;
   }
 
   input[type="checkbox"] {
@@ -418,9 +433,9 @@ input[type="checkbox"]:hover {
   }
 
   .month-navigation .today-button {
-    font-size: 0.6875rem !important;
+    font-size: 0.6875rem;
     margin-left: 0.75rem;
-    padding: 0.375rem 0.75rem !important;
+    padding: 0.375rem 0.75rem;
   }
 
   .month-navigation span {
