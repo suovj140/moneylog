@@ -114,8 +114,8 @@ export default function Sidebar() {
 
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`} style={{ backgroundColor: theme.sidebar }}>
-      <div className="sidebar-header" style={{ backgroundColor: '#000000' }}>
-        <div className="sidebar-logo">
+      <div className="sidebar-header" style={{ backgroundColor: theme.sidebar }}>
+        <div className="sidebar-logo" style={{ color: theme.text }}>
           <div className="logo-icon-wrapper">
             <img 
               src="/app-icon.png" 

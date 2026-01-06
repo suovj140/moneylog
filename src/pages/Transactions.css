@@ -1,11 +1,14 @@
 .transactions-page {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  padding-bottom: 5rem; /* 플로팅 버튼 공간 확보 */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  padding-bottom: 5rem !important; /* 플로팅 버튼 공간 확보 */
+  box-sizing: border-box !important;
+  flex: 1 !important;
+  min-height: 0 !important;
 }
 
 @media (min-width: 769px) {

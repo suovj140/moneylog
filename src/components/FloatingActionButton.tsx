@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useTheme } from '../contexts/ThemeContext'
 import './FloatingActionButton.css'
 
@@ -7,8 +9,13 @@ interface FloatingActionButtonProps {
 
 export default function FloatingActionButton({ onClick }: FloatingActionButtonProps) {
   const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  return (
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const button = (
     <button
       className="fab"
       onClick={onClick}
@@ -34,6 +41,10 @@ export default function FloatingActionButton({ onClick }: FloatingActionButtonPr
       </svg>
     </button>
   )
+
+  if (!mounted) return null
+
+  return createPortal(button, document.body)
 }
 
 
