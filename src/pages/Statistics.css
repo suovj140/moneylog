@@ -338,7 +338,7 @@
 @media (min-width: 769px) {
   .daily-chart {
     flex: 1;
-    min-height: 0;
+    min-height: 400px;
     height: 100%;
     max-height: none;
     display: flex;
@@ -347,7 +347,7 @@
   
   .daily-chart > div {
     flex: 1;
-    min-height: 0;
+    min-height: 300px;
   }
 }
 
