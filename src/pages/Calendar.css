@@ -382,11 +382,13 @@
   margin-top: 4px;
   font-size: 0.875rem;
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: flex-end;
   min-height: 20px;
+  width: 100%;
 }
 
 .transaction-summary {

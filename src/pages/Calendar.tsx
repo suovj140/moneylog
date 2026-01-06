@@ -404,11 +404,11 @@ export default function Calendar() {
                     return (
                       <div style={{ 
                         display: 'flex', 
-                        flexDirection: isMobile ? 'column' : 'row',
-                        gap: isMobile ? '0.125rem' : '0.5rem', 
+                        flexDirection: 'column',
+                        gap: isMobile ? '0.125rem' : '0.25rem', 
                         flexWrap: 'nowrap', 
-                        alignItems: isMobile ? 'flex-end' : 'center', 
-                        justifyContent: isMobile ? 'flex-end' : 'flex-start', 
+                        alignItems: 'flex-end', 
+                        justifyContent: 'flex-end', 
                         width: '100%', 
                         overflow: 'visible' 
                       }}>
@@ -424,10 +424,11 @@ export default function Calendar() {
                               overflow: 'visible',
                               textOverflow: 'clip',
                               maxWidth: 'none',
-                              width: 'auto'
+                              width: 'auto',
+                              textAlign: 'right'
                             }}
                           >
-                            {isMobile ? '' : '+'}{daySummary.income.toLocaleString()}{isMobile ? '' : t('common.currency')}
+                            {isMobile ? '' : `${t('common.income')} : `}{isMobile ? '' : '+'}{daySummary.income.toLocaleString()}{isMobile ? '' : t('common.currency')}
                           </span>
                         )}
                         {daySummary.expense > 0 && (
@@ -442,10 +443,11 @@ export default function Calendar() {
                               overflow: 'visible',
                               textOverflow: 'clip',
                               maxWidth: 'none',
-                              width: 'auto'
+                              width: 'auto',
+                              textAlign: 'right'
                             }}
                           >
-                            {isMobile ? '' : '-'}{daySummary.expense.toLocaleString()}{isMobile ? '' : t('common.currency')}
+                            {isMobile ? '' : `${t('common.expense')} : `}{isMobile ? '' : '-'}{daySummary.expense.toLocaleString()}{isMobile ? '' : t('common.currency')}
                           </span>
                         )}
                       </div>
@@ -674,13 +676,25 @@ export default function Calendar() {
                   { income: 0, expense: 0 }
                 )
                 return (
-                  <div style={{ display: 'flex', gap: '1rem', fontSize: '0.875rem', color: theme.textSecondary, justifyContent: 'flex-end' }}>
-                    <span style={{ color: theme.income }}>
-                      {daySummary.income > 0 ? '+' : ''}{daySummary.income.toLocaleString()}{t('common.currency')}
-                    </span>
-                    <span style={{ color: theme.expense }}>
-                      {daySummary.expense > 0 ? '-' : ''}{daySummary.expense.toLocaleString()}{t('common.currency')}
-                    </span>
+                  <div style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    gap: '0.25rem', 
+                    fontSize: '0.875rem', 
+                    color: theme.textSecondary, 
+                    alignItems: 'flex-end',
+                    justifyContent: 'flex-end' 
+                  }}>
+                    {daySummary.income > 0 && (
+                      <span style={{ color: theme.income, textAlign: 'right' }}>
+                        {t('common.income')} : +{daySummary.income.toLocaleString()}{t('common.currency')}
+                      </span>
+                    )}
+                    {daySummary.expense > 0 && (
+                      <span style={{ color: theme.expense, textAlign: 'right' }}>
+                        {t('common.expense')} : -{daySummary.expense.toLocaleString()}{t('common.currency')}
+                      </span>
+                    )}
                   </div>
                 )
               })()}
