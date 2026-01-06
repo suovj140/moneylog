@@ -214,10 +214,31 @@ export default function Transactions() {
       'Medical': ['Medical', '의료비', '医療費', 'Y tế', '医疗', 'Medikal'],
       'Communication': ['Communication', '통신비', '通信費', 'Viễn thông', '通信', 'Komunikasyon'],
       'Living': ['Living', '생활비', '生活費', 'Sinh hoạt', '生活费', 'Pamumuhay'],
+      'Housing': ['Housing', '주거', '住居', 'Nhà ở', '住房', 'Pabahay'],
+      'Education': ['Education', '교육', '教育', 'Giáo dục', '教育', 'Edukasyon'],
       'Other': ['Other', '기타', 'その他', 'Khác', '其他', 'Iba pa'],
       'Salary': ['Salary', '급여', '給与', 'Lương', '工资', 'Sahod'],
       'Extra Income': ['Extra Income', '부수입', '副収入', 'Thu nhập phụ', '额外收入', 'Dagdag na Kita'],
       'Allowance': ['Allowance', '용돈', 'お小遣い', 'Tiền tiêu vặt', '零花钱', 'Allowance']
+    }
+    
+    // 일본어 카테고리명도 매핑에 추가
+    const japaneseMap: Record<string, string[]> = {
+      '食費': ['Food', '식비', '食費', 'Ăn uống', '餐饮', 'Pagkain'],
+      '外食': ['Dining Out', '외식', '外食', 'Ăn ngoài', '外食', 'Kumain sa labas'],
+      '食料品': ['Groceries', '식료품', '食料品', 'Thực phẩm', '食品', 'Groseri'],
+      '交通費': ['Transport', '교통비', '交通費', 'Giao thông', '交通', 'Transportasyon'],
+      'ショッピング': ['Shopping', '쇼핑', 'ショッピング', 'Mua sắm', '购物', 'Pamimili'],
+      '文化・娯楽': ['Culture', '문화생활', '文化・娯楽', 'Văn hóa', '文化娱乐', 'Kultura'],
+      '医療費': ['Medical', '의료비', '医療費', 'Y tế', '医疗', 'Medikal'],
+      '通信費': ['Communication', '통신비', '通信費', 'Viễn thông', '通信', 'Komunikasyon'],
+      '生活費': ['Living', '생활비', '生活費', 'Sinh hoạt', '生活费', 'Pamumuhay'],
+      '住居': ['Housing', '주거', '住居', 'Nhà ở', '住房', 'Pabahay'],
+      '教育': ['Education', '교육', '教育', 'Giáo dục', '教育', 'Edukasyon'],
+      'その他': ['Other', '기타', 'その他', 'Khác', '其他', 'Iba pa'],
+      '給与': ['Salary', '급여', '給与', 'Lương', '工资', 'Sahod'],
+      '副収入': ['Extra Income', '부수입', '副収入', 'Thu nhập phụ', '额外收入', 'Dagdag na Kita'],
+      'お小遣い': ['Allowance', '용돈', 'お小遣い', 'Tiền tiêu vặt', '零花钱', 'Allowance']
     }
     
     // 언어별 인덱스: en=0, ko=1, ja=2, vi=3, zh=4, fil=5
@@ -240,6 +261,11 @@ export default function Transactions() {
     // 영어 카테고리명으로 매핑 시도
     if (englishMap[category]) {
       return englishMap[category][langIndex] || category
+    }
+    
+    // 일본어 카테고리명으로 매핑 시도
+    if (japaneseMap[category]) {
+      return japaneseMap[category][langIndex] || category
     }
     
     // 현재 언어의 카테고리 목록에 있으면 그대로 반환
@@ -277,6 +303,16 @@ export default function Transactions() {
       'Other': ['Other', '기타', 'その他', 'Khác', '其他', 'Iba pa']
     }
     
+    // 일본어 결제수단명도 매핑에 추가
+    const japaneseMap: Record<string, string[]> = {
+      '現金': ['Cash', '현금', '現金', 'Tiền mặt', '现金', 'Cash'],
+      'デビットカード': ['Check Card', '체크카드', 'デビットカード', 'Thẻ ghi nợ', '借记卡', 'Debit Card'],
+      'カード': ['Card', '카드', 'カード', 'Thẻ', '卡', 'Card'],
+      'クレジットカード': ['Credit Card', '신용카드', 'クレジットカード', 'Thẻ tín dụng', '信用卡', 'Credit Card'],
+      '銀行振込': ['Bank Transfer', '계좌이체', '銀行振込', 'Chuyển khoản', '银行转账', 'Bank Transfer'],
+      'その他': ['Other', '기타', 'その他', 'Khác', '其他', 'Iba pa']
+    }
+    
     // 언어별 인덱스: en=0, ko=1, ja=2, vi=3, zh=4, fil=5
     const langIndexMap: Record<string, number> = {
       'en': 0,
@@ -297,6 +333,11 @@ export default function Transactions() {
     // 영어 결제수단명으로 매핑 시도
     if (englishMap[paymentMethod]) {
       return englishMap[paymentMethod][langIndex] || paymentMethod
+    }
+    
+    // 일본어 결제수단명으로 매핑 시도
+    if (japaneseMap[paymentMethod]) {
+      return japaneseMap[paymentMethod][langIndex] || paymentMethod
     }
     
     // 현재 언어의 결제수단 목록에 있으면 그대로 반환
